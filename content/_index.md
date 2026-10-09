@@ -18,7 +18,7 @@ title: ""
 </h1>
 
 <!-- The "Elevator Pitch" -->
-Welcome to my personal webpage. I am currently a final-year undergraduate student at the <a href="https://semfe.ntua.gr/en/" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">School of Applied Mathematical & Physical Sciences</a>, <a href="https://ntua.gr/en/" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">NTUA</a>, mainly focusing on the intersection of fundamental theory and numerical computation.
+Welcome to my personal webpage. I am currently a final-year undergraduate student at the School of Applied Mathematical & Physical Sciences (<a href="https://semfe.ntua.gr/en/" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">SEMFE</a>), <a href="https://ntua.gr/en/" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">NTUA</a>, mainly focusing on the intersection of fundamental theory and numerical computation.
 
 My academic interests span both **Theoretical and Mathematical Physics** (General Relativity, the Standard Model, Quantum Field Theory) and **Computational Physics** (Lattice Field Theories, Computational Statistical Mechanics).
 

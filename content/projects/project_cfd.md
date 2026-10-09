@@ -24,7 +24,7 @@ Below are visual representations of the velocity profile and velocity contours f
   <img src="/images/projects/cfd/Ex4_1_Fig3B_GaussSeidel.png" alt="Velocity Contours" style="width: 100%; max-width: 400px; border-radius: 6px; box-shadow: var(--shadow);">
 </div>
 
-The complete MATLAB scripts are hosted on my [GitHub Repository](https://github.com/anbatategas/computational-fliud-dynamics), and are also incorporated in the solutions. The detailed mathematical proofs, numerical analysis, and error plots are available in the original coursework solutions below.
+The complete MATLAB scripts are hosted on my <a href="https://github.com/anbatategas/computational-fliud-dynamics" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">GitHub Repository</a>, and are also incorporated in the solutions. The detailed mathematical proofs, numerical analysis, and error plots are available in the original coursework solutions below.
 
 <p style="font-size: 0.90rem; opacity: 0.95;">
   <strong>Note</strong>: <em>The detailed solutions are written in Greek, though the embedded mathematics, MATLAB source code, and data plots follow universal scientific notation.</em>

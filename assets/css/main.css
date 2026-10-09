@@ -1210,22 +1210,23 @@ html:not([data-theme="dark"]) #sun-icon { display: none; }
     padding: 0 0.5rem !important;
   }
 
-  /* 2. THE NEW MENU: 2 Rows, No Scrolling, Centered */
+  /* 2. THE NEW MENU: 2 Rows, No Scrolling, Centered & Spaced */
   .main-nav {
     display: grid !important;
-    grid-template-columns: repeat(4, auto) !important; /* Forces exactly 4 columns */
-    gap: 0.6rem 0.2rem !important; /* Vertical gap, Horizontal gap */
+    grid-template-columns: repeat(4, 1fr) !important; /* 1fr forces perfectly even spacing */
+    gap: 0.6rem 0rem !important; 
     justify-items: center !important;
     align-items: center !important;
-    padding: 0.8rem 0.2rem !important;
+    padding: 0.8rem 1rem !important; /* Adds breathing room from the left/right screen edges */
+    width: 100%;
   }
   
   .nav-links {
-    display: contents !important; /* Removes the wrapper so links participate in the grid directly */
+    display: contents !important; 
   }
   
   .nav-links a {
-    font-size: 0.8rem !important; /* Shrinks the menu text */
+    font-size: 0.8rem !important; 
     white-space: nowrap !important;
     padding: 0.2rem !important;
   }
@@ -1300,20 +1301,15 @@ html:not([data-theme="dark"]) #sun-icon { display: none; }
   
   /* 7. SHRINK & JUSTIFY ALL TEXT FOR MOBILE */
   body {
-    font-size: 0.95rem !important; /* Master switch: shrinks all text globally on mobile */
+    font-size: 0.88rem !important; 
   }
   
   .post-full-content p,
-  .post-full-content div {
-    text-align: justify !important; /* Forces perfect justification on both edges */
-    text-justify: inter-word !important; /* Spreads spaces smoothly */
-    font-size: 0.95rem !important;
+  .post-full-content div,
+  .post-full-content li {
+    text-align: justify !important; 
+    text-justify: inter-word !important; 
+    font-size: 0.88rem !important; /* Shrunk for better mobile readability (CV & Projects) */
     line-height: 1.5 !important;
-  }
-  
-  /* 8. Image Scaling */
-  .post-full-content img {
-    width: 100% !important;
-    height: auto !important;
   }
 }

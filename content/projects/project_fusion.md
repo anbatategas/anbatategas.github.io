@@ -24,7 +24,7 @@ Below are visual representations of the phase space contours for the unperturbed
   <img src="/images/projects/fusion/2-ChaosIntro.png" alt="Poincaré Section" style="width: 100%; max-width: 400px; aspect-ratio: 4/3; object-fit: contain; border-radius: 6px; box-shadow: var(--shadow); background-color: white;">
 </div>
 
-The complete Python scripts used for the numerical integration and plotting are hosted on my [GitHub Repository](https://github.com/anbatategas/wave-particle-chaos) and are also appended to the final assignment. The detailed mathematical proofs, theoretical frameworks, and extended phase space maps are available in the original coursework assignment below.
+The complete Python scripts used for the numerical integration and plotting are hosted on my <a href="https://github.com/anbatategas/wave-particle-chaos" target="_blank" rel="noopener noreferrer" class="stealth-link no-favicon">GitHub Repository</a> and are also appended to the final assignment. The detailed mathematical proofs, theoretical frameworks, and extended phase space maps are available in the original coursework assignment below.
 
 <p style="font-size: 0.90rem; opacity: 0.95;">
   <strong>Note</strong>: <em>The detailed assignment is written in Greek, though the embedded mathematics, Python source code, and data plots follow universal scientific notation.</em>
