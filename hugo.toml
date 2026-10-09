@@ -1,4 +1,4 @@
-baseURL = 'https://anbatategas.github.io/'
+baseURL = 'https://anbatategas.com/'
 languageCode = 'en-us'
 title = 'Anastasios N. Batategas'
 disableKinds = ["taxonomy", "term"]
