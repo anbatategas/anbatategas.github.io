@@ -15,7 +15,7 @@ I am deeply passionate about bridging the gap between abstract theoretical conce
 <h2 class="main-title" style="margin-top: 4rem; font-size: 2rem;">Curriculum Vitae</h2>
 
 You can download a full, formal copy of my CV here: 
-<a href="/docs/cv/anastasios_n_batategas_cv.pdf" class="stealth-link no-favicon">Download CV (PDF)</a>
+<a href="/docs/cv/anbatategas_cv.pdf" class="stealth-link no-favicon">Download CV (PDF)</a>
 
 <br>
 
