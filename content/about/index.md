@@ -1,5 +1,6 @@
 ---
-
+title: "About Me"
+layout: page
 ---
 <!-- SECTION 1: INTRODUCTION -->
 <h2 class="main-title" style="margin-top: 1rem; font-size: 2rem;">Introduction</h2>
