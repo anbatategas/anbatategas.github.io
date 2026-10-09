@@ -1,5 +1,5 @@
 ---
-title: ""
+
 ---
 Feel free to reach out to me via email or connect with me on the social platforms below.
 
