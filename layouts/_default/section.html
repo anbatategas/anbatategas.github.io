@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <!-- Option A: Centered Title with Blue Line -->
+  <h1 class="main-title">{{ .Title }}</h1>
+  
+  <!-- If you write a summary in your _index.md file for the posts folder, it prints here -->
+  {{ if .Content }}
+    <div class="post-full-content" style="padding: 0 1rem 1.5rem 1rem;">
+      {{ .Content }}
+    </div>
+  {{ end }}
+
+  <!-- The "Expanding Box" Loop -->
+  <div class="posts-container">
+    <div class="posts-section">
+      {{ $index := 0 }}
+      {{ range .Pages }}
+        {{ $index = add $index 1 }}
+        <article class="post-card" data-post-id="{{ $index }}">
+          
+          <!-- The visible clickable header -->
+          <div class="post-header" data-post-id="{{ $index }}">
+            <div class="post-title-section">
+              <h2>{{ .Title }}</h2>
+              <div class="post-meta">
+                {{ if not .Date.IsZero }}
+                  <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          
+          <!-- The hidden content that expands when clicked -->
+          <div class="post-content" id="content-{{ $index }}" style="display: none;">
+            <div class="post-full-content">
+              {{ .Content }}
+            </div>
+          </div>
+          
+        </article>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

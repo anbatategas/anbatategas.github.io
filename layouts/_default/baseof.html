@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  <!-- This keeps your favicon, fonts, and CSS linked exactly as before -->
+  {{ partial "head.html" . }}
+</head>
+<body class="constrained-page">
+  
+  <!-- 1. TOP "SANDWICH" BREAD: The Header Image -->
+  <header class="site-header">
+    <div class="banner-wrapper" style="position: relative;">
+      <!-- You will put your top simulation image in /static/images/ and name it header-banner.jpg (or png) -->
+      <img src="/images/header-banner.jpg" alt="Simulation Header" class="header-image">
+      
+      <!-- The Overlay Text -->
+      <div class="banner-text">
+        Anastasios N. Batategas
+        <span class="banner-subtext">
+          Αναστάσιος Ν. Μπατατέγας
+          {{ if .IsHome }}
+          <span class="home-only-label">Personal Webpage</span>
+          {{ end }}
+        </span>
+      </div>
+    </div>
+
+    <!-- 2. THE MENU BAR: Navigation and Theme Toggle -->
+    <nav class="main-nav">
+      
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about/">About me</a>
+        <a href="/projects/">Projects</a>
+        <a href="/notes/">Notes</a>
+        <a href="/contact/">Contact</a>
+      </div>
+
+      <!-- Dark Mode Toggle Button (Anchored to the Far Right) -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark Mode">
+        <!-- Moon icon (for light mode) -->
+        <svg id="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <!-- Sun icon (for dark mode) -->
+        <svg id="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- 3. THE MEAT: The Constrained Content Area -->
+  <div class="constrained-container">
+    <main class="content-main">
+      <!-- This is where Home, About, Notes, and Contact text gets injected -->
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+
+  <!-- 4. BOTTOM "SANDWICH" BREAD: The Footer Image & Copyright -->
+  <footer class="site-footer">
+    <div class="banner-wrapper">
+      <!-- You will put your bottom simulation image in /static/images/ and name it footer-banner.jpg -->
+      <img src="/images/footer-banner.jpg" alt="Simulation Footer" class="footer-image">
+    </div>
+    <div class="footer-copyright">
+      {{ partial "footer.html" . }}
+    </div>
+  </footer>
+
+</body>
+</html>

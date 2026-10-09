@@ -1,0 +1,69 @@
+baseURL = 'https://anbatategas.github.io/'
+languageCode = 'en-us'
+title = 'Anastasios N. Batategas'
+disableKinds = ["taxonomy", "term"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
+      xhtml = false
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+      wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.extensions]
+      typographer = false
+      linkify = false
+      strikethrough = false
+      definitionList = false
+      footnote = false
+      table = true
+      taskList = false
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['$$', '$$'], ['\\[', '\\]']]
+        inline = [['$', '$'], ['\\(', '\\)']]
+  [markup.highlight]
+    style = 'github'
+    lineNos = false
+    lineNumbersInTable = false
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    hl_inline = false
+    noClasses = false
+    noHl = false
+    tabWidth = 4
+
+[taxonomies]
+  venue = "venue"
+  tag = "tags"
+
+[params]
+  author = "Anastasios N. Batategas"
+  description = "Undergraduate student in Applied Mathematical and Physical Sciences at NTUA."
+  
+  # The theme's colors
+  primaryColor = "#005b96"
+  
+  # Your profile details
+  avatar = "images/profile.jpg"
+  profilePhoto = "/images/profile.jpg" # (The theme likely only uses one of these, but keeping both is safe)
+  
+  bio = """I am an Undergraduate student in Applied Mathematical and Physical Sciences at NTUA. 
+  You can find my work on [GitHub](https://github.com) and connect with me on [Twitter](https://twitter.com).
+  
+  Currently working on my Diploma Thesis on Lattice Field Theories and QCD."""
+
+  [[params.social]]
+    name = "Email"
+    url = "mailto:tasosmntdew@gmail.com"
+
+  [[params.social]]
+    name = "LinkedIn"
+    url = "https://linkedin.com/in/yourusername"

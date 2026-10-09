@@ -1,0 +1,70 @@
+{{ define "main" }}
+  <!-- Global index for the pop-up JavaScript -->
+  {{ $globalIndex := 0 }}
+
+  <!-- SECTION 1: UNIVERSITY COURSES -->
+  <h1 class="main-title">University Courses</h1>
+  <div class="posts-container">
+    <div class="posts-section">
+      <!-- Pulls markdown files tagged with category: "course" -->
+      {{ range where .Pages "Params.category" "course" }}
+        {{ $globalIndex = add $globalIndex 1 }}
+        <article class="post-card" data-post-id="{{ $globalIndex }}">
+          
+          <div class="post-header" data-post-id="{{ $globalIndex }}">
+            <div class="post-title-section">
+              <h2>{{ .Title }}</h2>
+              <div class="post-meta">
+                {{ if .Params.period }}
+                  <time>{{ .Params.period }}</time>
+                {{ else if not .Date.IsZero }}
+                  <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="post-content" id="content-{{ $globalIndex }}" style="display: none;">
+            <div class="post-full-content">
+              {{ .Content }}
+            </div>
+          </div>
+          
+        </article>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- SECTION 2: GENERAL NOTES -->
+  <h1 class="main-title">General Notes</h1>
+  <div class="posts-container">
+    <div class="posts-section">
+      <!-- Pulls markdown files tagged with category: "general" -->
+      {{ range where .Pages "Params.category" "general" }}
+        {{ $globalIndex = add $globalIndex 1 }}
+        <article class="post-card" data-post-id="{{ $globalIndex }}">
+          
+          <div class="post-header" data-post-id="{{ $globalIndex }}">
+            <div class="post-title-section">
+              <h2>{{ .Title }}</h2>
+              <div class="post-meta">
+                {{ if .Params.period }}
+                  <time>{{ .Params.period }}</time>
+                {{ else if not .Date.IsZero }}
+                  <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="post-content" id="content-{{ $globalIndex }}" style="display: none;">
+            <div class="post-full-content">
+              {{ .Content }}
+            </div>
+          </div>
+          
+        </article>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

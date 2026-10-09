@@ -1,0 +1,96 @@
+{{ define "main" }}
+  <!-- We use a global index so the expanding box JavaScript IDs don't clash -->
+  {{ $globalIndex := 0 }}
+
+  <!-- SECTION 1: DIPLOMA THESIS -->
+  <h1 class="main-title">Diploma Thesis</h1>
+  <div class="post-full-content" style="padding: 0 1rem 2rem 1rem; text-align: center;">
+    <p style="text-align: center; font-style: italic; color: var(--text-color);"><em>Coming soon...</em></p>
+  </div>
+
+<!-- SECTION 2: TERM PAPERS -->
+  <h1 class="main-title">Term Papers & Assignments</h1>
+  <div class="posts-container">
+    <div class="posts-section">
+      <!-- This loop ONLY pulls markdown files tagged with category: "other" -->
+      {{ range where .Pages "Params.category" "other" }}
+        {{ $globalIndex = add $globalIndex 1 }}
+        <article class="post-card" id="{{ .File.TranslationBaseName | urlize }}" data-post-id="{{ $globalIndex }}">
+          
+          <div class="post-header" data-post-id="{{ $globalIndex }}">
+            <div class="post-title-section">
+              <h2>{{ .Title }}</h2>
+              <div class="post-meta">
+                {{ if .Params.period }}
+                  <time>{{ .Params.period }}</time>
+                {{ else if not .Date.IsZero }}
+                  <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="post-content" id="content-{{ $globalIndex }}" style="display: none;">
+            <div class="post-full-content">
+              {{ .Content }}
+            </div>
+          </div>
+          
+        </article>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- SECTION 3: PHYSICS LAB REPORTS -->
+  <h1 class="main-title">Physics Lab Reports</h1>
+  <div class="posts-container">
+    <div class="posts-section">
+      <!-- This loop ONLY pulls markdown files tagged with category: "lab" -->
+      {{ range where .Pages "Params.category" "lab" }}
+        {{ $globalIndex = add $globalIndex 1 }}
+        <article class="post-card" id="{{ .File.TranslationBaseName | urlize }}" data-post-id="{{ $globalIndex }}">
+          
+          <div class="post-header" data-post-id="{{ $globalIndex }}">
+            <div class="post-title-section">
+              <h2>{{ .Title }}</h2>
+              <div class="post-meta">
+                {{ if .Params.period }}
+                  <time>{{ .Params.period }}</time>
+                {{ else if not .Date.IsZero }}
+                  <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+          
+          <div class="post-content" id="content-{{ $globalIndex }}" style="display: none;">
+            <div class="post-full-content">
+              {{ .Content }}
+            </div>
+          </div>
+          
+        </article>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- AUTO-OPEN PROJECT SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (window.location.hash) {
+            let targetArticle = document.querySelector(window.location.hash);
+            
+            if (targetArticle) {
+                targetArticle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                let targetHeader = targetArticle.querySelector('.post-header');
+                if (targetHeader) {
+                    setTimeout(() => {
+                        targetHeader.click();
+                    }, 300);
+                }
+            }
+        }
+    });
+  </script>
+{{ end }}
