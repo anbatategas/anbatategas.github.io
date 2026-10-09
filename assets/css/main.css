@@ -1312,4 +1312,34 @@ html:not([data-theme="dark"]) #sun-icon { display: none; }
     font-size: 0.88rem !important; /* Shrunk for better mobile readability (CV & Projects) */
     line-height: 1.5 !important;
   }
+
+  /* 9. SHRINK CV DETAILS ONLY */
+  /* Targets only the specific divs in your CV that have the 0.9em inline style */
+  .post-full-content div[style*="0.9em"] {
+    font-size: 0.80rem !important; 
+    line-height: 1.4 !important;
+  }
+
+  /* 10. SHRINK PDF LINKS TO ONE LINE */
+  /* Targets the bulleted links inside your project files */
+  .post-full-content ul li a {
+    font-size: 0.75rem !important; /* Shrinks the text */
+    white-space: nowrap !important; /* Forces it to stay on one line */
+    overflow: hidden !important; 
+    text-overflow: ellipsis !important; /* Adds "..." if it's still slightly too long */
+    max-width: 100% !important;
+    display: inline-block !important;
+  }
+
+  /* 11. CONTACT PAGE: STACK EMAILS & HIDE THE SEPARATOR */
+  .email-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.4rem !important;
+  }
+  
+  .email-divider {
+    display: none !important; /* Makes the | vanish on mobile */
+  }
+
 }

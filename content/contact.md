@@ -26,9 +26,9 @@ Feel free to reach out to me via email or connect with me on the social platform
 <!-- Emails -->
 <div style="display: flex; align-items: center; gap: 12px;">
     <svg style="width: 24px; height: 24px; fill: var(--text-color); flex-shrink: 0;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+    <div class="email-wrapper" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
       <a href="mailto:anbatategas@gmail.com" class="stealth-link">anbatategas@gmail.com</a>
-      <span style="color: var(--text-color); font-weight: bold; font-size: 1.2em; position: relative; top: -4px;">|</span>
+      <span class="email-divider" style="color: var(--text-color); font-weight: bold; font-size: 1.2em; position: relative; top: -4px;">|</span>
       <a href="mailto:ge21431@mail.ntua.com" class="stealth-link">ge21431@mail.ntua.com</a>
     </div>
   </div>
