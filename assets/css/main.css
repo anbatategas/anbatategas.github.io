@@ -1200,99 +1200,118 @@ html:not([data-theme="dark"]) #sun-icon { display: none; }
 @media (max-width: 768px) {
   
   /* 1. Relax the Container Margins & Padding */
-  /* Reclaims screen real estate on phones by removing the huge side padding */
   .constrained-container {
-    padding: 1rem 1rem !important; /* Drops padding from 3rem to 1rem */
+    padding: 1rem 1rem !important;
     margin-bottom: 0;
   }
   
   .post-full-content,
   .home-content {
-    padding: 0 0.5rem !important; /* Reduces inner padding */
+    padding: 0 0.5rem !important;
   }
 
-  /* 2. Fix the "Squished" Header & Navigation Bar */
-  /* Keeps the nav links in a single horizontal row with a horizontal scroll if needed */
+  /* 2. THE NEW MENU: 2 Rows, No Scrolling, Centered */
   .main-nav {
-    flex-direction: column !important;
-    padding: 0.5rem 1rem !important;
-    gap: 0.8rem;
+    display: grid !important;
+    grid-template-columns: repeat(4, auto) !important; /* Forces exactly 4 columns */
+    gap: 0.6rem 0.2rem !important; /* Vertical gap, Horizontal gap */
+    justify-items: center !important;
+    align-items: center !important;
+    padding: 0.8rem 0.2rem !important;
   }
   
   .nav-links {
-    width: 100%;
-    display: flex;
-    flex-direction: row !important; /* Forces them into one line */
-    justify-content: space-between !important;
-    flex-wrap: nowrap !important; /* Prevents wrapping to a second row */
-    overflow-x: auto; /* Allows horizontal scrolling if the phone is super narrow */
-    padding-bottom: 0.2rem;
-    gap: 1rem;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  }
-  
-  /* Remove scrollbar visually from the nav bar but keep functionality */
-  .nav-links::-webkit-scrollbar {
-    display: none;
+    display: contents !important; /* Removes the wrapper so links participate in the grid directly */
   }
   
   .nav-links a {
-    font-size: 0.95rem; /* Shrinks the menu text slightly */
-    white-space: nowrap; /* Forces the text to stay on one line */
+    font-size: 0.8rem !important; /* Shrinks the menu text */
+    white-space: nowrap !important;
+    padding: 0.2rem !important;
   }
 
-  /* Shrink the search box to fit better */
-  .nav-search .search-box input {
-    width: 100% !important;
+  /* Force "Contact" to Row 2, sitting nicely under "About me" */
+  .nav-links a:nth-child(5) {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 !important;
+  }
+  
+  /* Force Theme Switcher to Row 2, sitting nicely under "Projects" */
+  .theme-toggle-btn {
+    grid-column: 3 / 4 !important;
+    grid-row: 2 !important;
+    padding: 0.2rem !important;
+  }
+  
+  .theme-toggle-btn svg {
+    width: 1.1rem !important;
+    height: 1.1rem !important;
   }
 
   /* 3. Scale Down "Squished" Titles */
-  /* Prevents long academic titles from breaking the layout */
   .main-title {
-    font-size: 1.6rem !important; /* Scales down from 2rem */
+    font-size: 1.5rem !important;
     margin: 1rem 0 !important;
-    word-wrap: break-word; /* Prevents long words from bleeding off screen */
+    word-wrap: break-word;
   }
 
-  h1 { font-size: 1.6rem !important; }
-  h2 { font-size: 1.4rem !important; }
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.3rem !important; }
   
-  /* Scale down the titles inside the expanding boxes */
   .post-header h2 {
-    font-size: 1.2rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
   }
 
-  /* 4. Fix Flexbox Stacking in the CV/Contact Sections */
-  /* Converts side-by-side elements (like Date/University) into a vertical stack */
+  /* 4. FIX THE BANNER OVERLAP (Shrink Header Text) */
+  .banner-text {
+    font-size: 1.3rem !important; /* Scaled down drastically to prevent bleeding */
+    width: 90% !important; /* Keeps text away from the absolute edges */
+  }
+  
+  .banner-subtext { 
+    font-size: 0.85rem !important; 
+    margin-top: 0.1rem !important;
+  } 
+  
+  .home-only-label { 
+    font-size: 0.55rem !important; 
+    margin-top: 0.2rem !important;
+  }
+
+  /* 5. Fix Flexbox Stacking in the CV/Contact Sections */
   div[style*="display: flex; justify-content: space-between"] {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0.2rem;
   }
   
-  /* Makes the date string drop to the next line smoothly */
   div[style*="display: flex; justify-content: space-between"] span:nth-child(2) {
     display: block;
     margin-top: 0.2rem;
     color: var(--text-muted);
   }
 
-  /* 5. Fix the Expanding Posts Box Constraints */
+  /* 6. Fix the Expanding Posts Box Constraints */
   .post-card.centered {
-    width: 95% !important; /* Gives a tiny 2.5% margin on mobile */
+    width: 95% !important;
     padding: 0.8rem !important;
   }
   
-  /* 6. Fix Text Justification Issues */
-  /* Full justification on narrow phone screens creates massive "rivers" of white space.
-     This reverts standard text to left-aligned on mobile for readability. */
-  .post-full-content p {
-    text-align: left !important;
+  /* 7. SHRINK & JUSTIFY ALL TEXT FOR MOBILE */
+  body {
+    font-size: 0.95rem !important; /* Master switch: shrinks all text globally on mobile */
   }
   
-  /* 7. Image Scaling */
-  /* Ensures large simulation graphs scale down to fit the phone screen exactly */
+  .post-full-content p,
+  .post-full-content div {
+    text-align: justify !important; /* Forces perfect justification on both edges */
+    text-justify: inter-word !important; /* Spreads spaces smoothly */
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* 8. Image Scaling */
   .post-full-content img {
     width: 100% !important;
     height: auto !important;
