@@ -1023,22 +1023,6 @@ html[data-theme="dark"] * {
 }
 
 
-/* NTUA Layout Mobile Responsiveness */
-@media (max-width: 768px) {
-  .main-nav {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  .nav-links {
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .nav-search .search-box input {
-    width: 100%;
-  }
-}
-
 /* ========================================================= */
 /* KILL ZOMBIE JAVASCRIPT UI BUTTONS                         */
 /* ========================================================= */
@@ -1208,4 +1192,109 @@ html:not([data-theme="dark"]) #sun-icon { display: none; }
 /* Force LaTeX math to perfectly match the surrounding text size */
 .MathJax, .MathJax_Display, .katex, .katex-display {
   font-size: 1em !important;
+}
+
+/* ========================================================= */
+/* UNIVERSAL MOBILE RESPONSIVENESS OVERRIDES                 */
+/* ========================================================= */
+@media (max-width: 768px) {
+  
+  /* 1. Relax the Container Margins & Padding */
+  /* Reclaims screen real estate on phones by removing the huge side padding */
+  .constrained-container {
+    padding: 1rem 1rem !important; /* Drops padding from 3rem to 1rem */
+    margin-bottom: 0;
+  }
+  
+  .post-full-content,
+  .home-content {
+    padding: 0 0.5rem !important; /* Reduces inner padding */
+  }
+
+  /* 2. Fix the "Squished" Header & Navigation Bar */
+  /* Keeps the nav links in a single horizontal row with a horizontal scroll if needed */
+  .main-nav {
+    flex-direction: column !important;
+    padding: 0.5rem 1rem !important;
+    gap: 0.8rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-direction: row !important; /* Forces them into one line */
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important; /* Prevents wrapping to a second row */
+    overflow-x: auto; /* Allows horizontal scrolling if the phone is super narrow */
+    padding-bottom: 0.2rem;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Remove scrollbar visually from the nav bar but keep functionality */
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .nav-links a {
+    font-size: 0.95rem; /* Shrinks the menu text slightly */
+    white-space: nowrap; /* Forces the text to stay on one line */
+  }
+
+  /* Shrink the search box to fit better */
+  .nav-search .search-box input {
+    width: 100% !important;
+  }
+
+  /* 3. Scale Down "Squished" Titles */
+  /* Prevents long academic titles from breaking the layout */
+  .main-title {
+    font-size: 1.6rem !important; /* Scales down from 2rem */
+    margin: 1rem 0 !important;
+    word-wrap: break-word; /* Prevents long words from bleeding off screen */
+  }
+
+  h1 { font-size: 1.6rem !important; }
+  h2 { font-size: 1.4rem !important; }
+  
+  /* Scale down the titles inside the expanding boxes */
+  .post-header h2 {
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 4. Fix Flexbox Stacking in the CV/Contact Sections */
+  /* Converts side-by-side elements (like Date/University) into a vertical stack */
+  div[style*="display: flex; justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.2rem;
+  }
+  
+  /* Makes the date string drop to the next line smoothly */
+  div[style*="display: flex; justify-content: space-between"] span:nth-child(2) {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--text-muted);
+  }
+
+  /* 5. Fix the Expanding Posts Box Constraints */
+  .post-card.centered {
+    width: 95% !important; /* Gives a tiny 2.5% margin on mobile */
+    padding: 0.8rem !important;
+  }
+  
+  /* 6. Fix Text Justification Issues */
+  /* Full justification on narrow phone screens creates massive "rivers" of white space.
+     This reverts standard text to left-aligned on mobile for readability. */
+  .post-full-content p {
+    text-align: left !important;
+  }
+  
+  /* 7. Image Scaling */
+  /* Ensures large simulation graphs scale down to fit the phone screen exactly */
+  .post-full-content img {
+    width: 100% !important;
+    height: auto !important;
+  }
 }
